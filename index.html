@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lester SPRX — Menú para GTA V</title>
+<meta name="description" content="Lester SPRX: menú mod para GTA V en PS4. Descarga, instalación y novedades.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#0b0c0b;--surface:#131513;--line:#232622;--text:#eef0ec;--muted:#9a9f96;--accent:#f2554a;--accent-ink:#1a0705;
+  --ease-out:cubic-bezier(0.23,1,0.32,1);--ease-in-out:cubic-bezier(0.77,0,0.175,1);
+  --sans:"Outfit",system-ui,-apple-system,"Segoe UI",sans-serif;--mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark}}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){color-scheme:light;--bg:#f6f7f4;--surface:#ffffff;--line:#dfe2db;--text:#121411;--muted:#5d625a;--accent:#c4261c;--accent-ink:#ffffff}}
+:root[data-theme="light"]{color-scheme:light;--bg:#f6f7f4;--surface:#ffffff;--line:#dfe2db;--text:#121411;--muted:#5d625a;--accent:#c4261c;--accent-ink:#ffffff}
+:root[data-theme="dark"]{color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:1rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+a{color:inherit}
+.wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 clamp(1rem,4vw,2rem)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+/* nav */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:11;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-weight:800;letter-spacing:-.03em;font-size:1.15rem;text-decoration:none;display:flex;align-items:center;gap:.6rem}
+.logo i{width:10px;height:10px;border-radius:50%;background:var(--accent);display:block}
+nav ul{display:flex;gap:1.75rem;list-style:none;margin:0;padding:0;font-size:.9rem;color:var(--muted)}
+nav a{text-decoration:none;transition:color .15s ease}
+@media (hover:hover) and (pointer:fine){nav a:hover{color:var(--text)}}
+@media (max-width:640px){nav ul{display:none}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 1.4rem;border-radius:999px;font:600 .95rem var(--sans);text-decoration:none;border:1px solid var(--line);background:transparent;color:var(--text);cursor:pointer;transition:transform .14s var(--ease-out),background-color .15s ease,border-color .15s ease}
+.btn:active{transform:scale(.97)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+@media (hover:hover) and (pointer:fine){.btn:hover{border-color:var(--accent)}.btn.primary:hover{background:color-mix(in srgb,var(--accent) 88%,#fff)}}
+
+/* hero */
+.hero{min-height:100dvh;display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(2rem,5vw,5rem);align-items:center;padding:clamp(3rem,8vw,6rem) 0}
+.eyebrow{font:500 .78rem var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:.6rem}
+.pulse{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:pulse 2s var(--ease-out) infinite}
+@keyframes pulse{0%{transform:scale(1);opacity:1}70%{transform:scale(2.2);opacity:0}100%{transform:scale(2.2);opacity:0}}
+h1{font-size:clamp(3rem,9vw,7rem);line-height:.92;letter-spacing:-.05em;font-weight:800;margin:1.2rem 0 1.4rem}
+h1 span{color:var(--accent)}
+.lead{color:var(--muted);max-width:52ch;font-size:1.1rem;margin:0 0 2rem}
+.cta{display:flex;flex-wrap:wrap;gap:.8rem}
+.meta{display:flex;flex-wrap:wrap;gap:1.5rem 2.5rem;margin-top:3rem;font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+.meta b{display:block;color:var(--text);font-weight:500;font-size:.95rem}
+
+/* menu mockup */
+.menu{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:1.1rem;box-shadow:0 30px 60px -30px color-mix(in srgb,var(--accent) 22%,transparent);font-family:var(--mono);font-size:.85rem;max-width:380px;justify-self:end;width:100%}
+.menu-head{display:flex;justify-content:space-between;padding:.4rem .6rem .9rem;border-bottom:1px solid var(--line);margin-bottom:.6rem;color:var(--muted);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
+.menu-head b{color:var(--accent);font-weight:500}
+.items{position:relative}
+.items::before{content:"";position:absolute;left:0;right:0;top:0;height:40px;border-radius:10px;background:color-mix(in srgb,var(--accent) 16%,transparent);border:1px solid color-mix(in srgb,var(--accent) 45%,transparent);animation:sel 8s var(--ease-in-out) infinite;will-change:transform}
+@keyframes sel{0%,12%{transform:translateY(0)}20%,37%{transform:translateY(40px)}45%,62%{transform:translateY(80px)}70%,87%{transform:translateY(120px)}95%,100%{transform:translateY(0)}}
+.it{height:40px;display:flex;align-items:center;justify-content:space-between;padding:0 .8rem;position:relative}
+.sw{width:30px;height:16px;border-radius:99px;background:var(--line);position:relative}
+.sw::after{content:"";position:absolute;top:2px;left:2px;width:12px;height:12px;border-radius:50%;background:var(--muted)}
+.sw.on{background:var(--accent)}
+.sw.on::after{transform:translateX(14px);background:var(--accent-ink)}
+.menu-foot{display:flex;justify-content:space-between;margin-top:.8rem;padding:.7rem .6rem 0;border-top:1px solid var(--line);color:var(--muted);font-size:.7rem}
+
+/* sections */
+section{padding:clamp(3.5rem,9vw,7rem) 0;border-top:1px solid var(--line)}
+h2{font-size:clamp(2rem,5vw,3.4rem);letter-spacing:-.04em;line-height:1;margin:0 0 .8rem;font-weight:700}
+.sub{color:var(--muted);max-width:55ch;margin:0}
+.head{display:grid;grid-template-columns:1fr 2fr;gap:2rem;margin-bottom:3rem}
+.feat{display:grid;grid-template-columns:repeat(3,1fr)}
+.feat>div{padding:1.8rem 1.6rem 1.8rem 0;border-top:1px solid var(--line)}
+.feat>div:nth-child(n+4){margin-top:0}
+.feat h3{margin:0 0 .5rem;font-size:1.15rem;letter-spacing:-.02em}
+.feat p{margin:0;color:var(--muted);font-size:.95rem}
+.feat .n{font:500 .75rem var(--mono);color:var(--accent);display:block;margin-bottom:1rem}
+.steps{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+ol{list-style:none;margin:0;padding:0;counter-reset:s}
+ol li{counter-increment:s;display:grid;grid-template-columns:3rem 1fr;padding:1.1rem 0;border-bottom:1px solid var(--line)}
+ol li::before{content:counter(s,decimal-leading-zero);font:500 .85rem var(--mono);color:var(--accent);padding-top:.2rem}
+.dl{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:clamp(1.5rem,4vw,2.5rem)}
+.dl{display:grid;grid-template-columns:1fr auto;gap:clamp(1.5rem,4vw,3rem);align-items:center}
+.dl-img{margin:0;justify-self:end}
+.dl-img img{display:block;width:100%;max-width:300px;height:auto;border-radius:16px;border:1px solid var(--line);box-shadow:0 30px 60px -30px color-mix(in srgb,var(--accent) 30%,transparent)}
+@media (max-width:760px){.dl{grid-template-columns:1fr}.dl-img{justify-self:start}.dl-img img{max-width:260px}}
+.dl dl{display:grid;grid-template-columns:auto 1fr;gap:.6rem 1.5rem;margin:1.4rem 0 1.8rem;font-family:var(--mono);font-size:.85rem}
+.dl dt{color:var(--muted)}.dl dd{margin:0}
+.log{font-family:var(--mono);font-size:.85rem;color:var(--muted)}
+.log div{display:grid;grid-template-columns:5rem 1fr;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--line)}
+.log b{color:var(--accent);font-weight:500}
+details{border-bottom:1px solid var(--line);padding:1.1rem 0}
+summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--mono);color:var(--accent);transition:transform .2s var(--ease-out)}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--muted);margin:.7rem 0 0;max-width:62ch}
+footer{border-top:1px solid var(--line);padding:2.5rem 0 3rem;color:var(--muted);font-size:.82rem}
+footer p{max-width:75ch;margin:0 0 .8rem}
+
+/* working */
+.work{color:var(--accent);display:inline-flex;align-items:baseline;transform-origin:left center;animation:breathe 3s ease-in-out infinite}
+.work i{font-style:normal;display:inline-block;animation:dot 1.2s var(--ease-in-out) infinite}
+.work i:nth-child(2){animation-delay:.15s}
+.work i:nth-child(3){animation-delay:.3s}
+@keyframes dot{0%,60%,100%{transform:translateY(0);opacity:.35}30%{transform:translateY(-4px);opacity:1}}
+@keyframes breathe{0%,100%{transform:scale(1);opacity:.75}50%{transform:scale(1.25);opacity:1}}
+@keyframes breathe-soft{0%,100%{transform:scale(1);opacity:.75}50%{transform:scale(1.1);opacity:1}}
+@media (prefers-reduced-motion:reduce){.work{animation-name:breathe-soft}.work i{animation:none;opacity:1}}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .5s var(--ease-out),transform .5s var(--ease-out);transition-delay:calc(var(--i,0)*60ms)}
+.rv.in{opacity:1;transform:none}
+.no-js .rv{opacity:1;transform:none}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;min-height:auto}.menu{justify-self:start}
+  .head,.steps{grid-template-columns:1fr}.feat{grid-template-columns:1fr 1fr}
+}
+@media (max-width:540px){.feat{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){
+  .rv{transform:none;transition:opacity .3s ease}
+  .pulse{animation:none}
+  .items::before{animation:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body class="no-js">
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#inicio"><i></i>Lester SPRX</a>
+    <nav aria-label="Principal"><ul>
+      <li><a href="#funciones">Funciones</a></li>
+      <li><a href="#instalar">Instalación</a></li>
+      <li><a href="#descargar">Descarga</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul></nav>
+    <a class="btn primary" data-download href="#descargar" style="padding:.55rem 1.1rem;font-size:.85rem">Descargar</a>
+  </div>
+</header>
+
+<main id="inicio">
+<div class="wrap hero">
+  <div>
+    <div class="eyebrow"><span class="pulse"></span>Versión <span id="v-top">1.0</span> disponible</div>
+    <h1>Lester<br><span>SPRX</span></h1>
+    <p class="lead">Un menú para GTA V pensado para ser rápido, limpio y fácil de manejar.</p>
+    <div class="cta">
+      <a class="btn primary" data-download href="#descargar">Descargar menú</a>
+      <a class="btn" href="#instalar">Cómo instalarlo</a>
+    </div>
+    <div class="meta">
+      <div>Plataforma<b>PS4 · GoldHen</b></div>
+      <div>Formato<b>.prx</b></div>
+      <div>Juego<b>GTA V 1.57</b></div>
+    </div>
+  </div>
+  <div class="menu" aria-hidden="true">
+    <div class="menu-head"><span>Lester SPRX</span><b>v1.0</b></div>
+    <div class="items">
+      <div class="it"><span>Jugador</span><span class="sw on"></span></div>
+      <div class="it"><span>Vehículos</span><span class="sw"></span></div>
+      <div class="it"><span>Armas</span><span class="sw on"></span></div>
+      <div class="it"><span>Teletransportes</span><span class="sw"></span></div>
+    </div>
+    <div class="menu-foot"><span>Open: L1 + <svg role="img" aria-label="Cuadrado" viewBox="0 0 12 12" width="12" height="12" style="vertical-align:-1px"><rect x="1.25" y="1.25" width="9.5" height="9.5" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span><span>&#9675; para cerrar el menu</span></div>
+  </div>
+</div>
+
+<section id="funciones"><div class="wrap">
+  <div class="head rv"><h2>Funciones</h2><p class="sub">Todo organizado en submenús claros.</p></div>
+  <div class="feat" id="feat"></div>
+</div></section>
+
+<section id="instalar"><div class="wrap steps">
+  <div class="rv"><h2>Instalación</h2><p class="sub">Pensado para consolas con GoldHen. Sigue los pasos en orden y no se te escapará nada.</p></div>
+  <ol class="rv" style="--i:1">
+    <li><div><b>Descarga el archivo</b><br><span class="sub">Guarda el .prx desde el botón de descarga.</span></div></li>
+    <li><div><b>Cópialo a tu consola</b><br><span class="sub">Por FTP o USB a la carpeta de tu cargador de plugins.</span></div></li>
+    <li><div><b>Añádelo a la lista de plugins</b><br><span class="sub">Indica la ruta del archivo en tu configuración.</span></div></li>
+    <li><div><b>abre el juego</b><br><span class="sub">Abre el menú con el atajo de botones de abajo.</span></div></li>
+  </ol>
+</div></section>
+
+<section id="descargar"><div class="wrap">
+  <div class="dl rv">
+    <div class="dl-txt">
+    <h2>Descargar</h2>
+    <dl>
+      <dt>Versión</dt><dd id="v">1.0</dd>
+      <dt>Archivo</dt><dd>XlesterX.prx</dd>
+      <dt>Tamaño</dt><dd>404KB</dd>
+      <dt>Actualizado</dt><dd id="date">—</dd>
+    </dl>
+    <a class="btn primary" data-download href="#descargar">Descargar Lester SPRX</a>
+    </div>
+    <figure class="dl-img"><img src="data:image/webp;base64,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" width="343" height="400" alt="Captura del menú Lester SPRX en GTA V con las opciones Network, Self Options, Vehicle Spawner, Vehicle, Weapons y Teleport" loading="lazy"></figure>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="head rv"><h2>Novedades</h2><p class="sub">Historial de versiones.</p></div>
+  <div class="log rv">
+   <div><b>v2.0</b><span class="work">Working<i>.</i><i>.</i><i>.</i></span></div>
+    <div><b>v1.0</b><span>Primera versión pública del menú.</span></div>
+  </div>
+</div></section>
+
+<section id="faq"><div class="wrap">
+  <div class="head rv"><h2>Preguntas</h2><p class="sub">Lo que más se suele preguntar.</p></div>
+  <div class="rv">
+    <details><summary>¿Funciona en consolas sin GoldHen?</summary><p>No. Los archivos PRX/SPRX requieren una consola con GoldHen y un cargador de plugins.</p></details>
+    <details><summary>¿Puedo usarlo online?</summary><p>Si Puedes usarlo Online siempre y cuando jueges en algun server como GTA reborn o LosSantosOnline</p></details>
+    <details><summary>El juego se cierra al abrir el menú</summary><p>Comprueba que el archivo está completo, que la ruta del plugin es correcta y que no tienes otros menús cargados a la vez.</p></details>
+    <details><summary>¿Dónde reporto un fallo?</summary><p>Escríbeme por el canal de Report Bugs de discord discord.gg/vnrkCphem7 </p></details>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <p>Lester SPRX es un proyecto independiente de la comunidad. No está afiliado, respaldado ni patrocinado por Rockstar Games ni Take-Two Interactive. Grand Theft Auto V es marca de sus respectivos propietarios.</p>
+  <p>Úsalo bajo tu propia responsabilidad y No me hago responsable de ningun baneo en ningun server dedicado o servidor de Rockstar games oficial. Si lo usas para hacer el subNormal pues normal que te den Ban.</p>
+  <p>© 2026 Lester SPRX | Lester PRX | XlesterX</p>
+</div></footer>
+
+<script>
+var CONFIG={
+  version:"1.0",
+  date:"29/10/2026",
+  download:"https://www.mediafire.com/file/7g60mpmg7crlcqq/XlesterX_sprx.rar/file",
+  features:[
+    ["Jugador","Opciones de personaje, salud, habilidades y apariencia."],
+    ["Vehículos","Genera, personaliza y ajusta coches, motos y más."],
+    ["Armas","Gestiona tu arsenal y sus modificaciones."],
+    ["Mundo","Controla hora, clima y comportamiento del entorno."],
+    ["Teletransportes","Salta a los puntos clave del mapa al instante."],
+    ["Ajustes","Cambia atajos, estilo del menú y guarda tu configuración."]
+  ]
+};
+(function(){
+  document.body.classList.remove("no-js");
+  var f=document.getElementById("feat"),h="";
+  CONFIG.features.forEach(function(x,i){
+    h+='<div class="rv" style="--i:'+(i%3)+'"><span class="n">'+String(i+1).padStart(2,"0")+'</span><h3>'+x[0]+'</h3><p>'+x[1]+'</p></div>';
+  });
+  f.innerHTML=h;
+  document.getElementById("v").textContent=CONFIG.version;
+  document.getElementById("v-top").textContent=CONFIG.version;
+  document.getElementById("date").textContent=CONFIG.date;
+  if(CONFIG.download){document.querySelectorAll("[data-download]").forEach(function(a){a.setAttribute("href",CONFIG.download);a.setAttribute("target","_blank");a.setAttribute("rel","noopener noreferrer")})}
+  var els=document.querySelectorAll(".rv");
+  if(!("IntersectionObserver" in window)){els.forEach(function(e){e.classList.add("in")});return}
+  var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.15});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
+</body>
+</html>
