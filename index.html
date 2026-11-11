@@ -98,14 +98,14 @@ ol li::before{content:counter(s,decimal-leading-zero);font:500 .85rem var(--mono
 .log details{padding:0;border-bottom:1px solid var(--line)}
 .log summary{display:grid;grid-template-columns:5rem 1fr auto;gap:1rem;padding:1rem 0;font-weight:400;align-items:center}
 .log summary b{color:var(--accent);font-weight:500}
-.log details .v2{padding:0 0 1.2rem 6rem;display:grid;grid-template-columns:1fr;gap:1.1rem;border-bottom:0}
-.log details .v2 .grp{display:block;padding:0;border:0}
-.log details .v2 h4{margin:0 0 .4rem;font:500 .72rem var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--text)}
-.log details .v2 ul{margin:0;padding:0;list-style:none;display:grid;gap:.3rem}
-.log details .v2 li{position:relative;padding-left:1rem;color:var(--muted);line-height:1.5}
-.log details .v2 li::before{content:"";position:absolute;left:0;top:.6em;width:5px;height:5px;border-radius:50%;background:var(--accent)}
-.log details .v2 li ul{margin-top:.3rem;padding-left:.2rem}
-@media (max-width:640px){.log details .v2{padding-left:0}.log summary{grid-template-columns:4rem 1fr auto}}
+.log details :is(.v2,.v3){padding:0 0 1.2rem 6rem;display:grid;grid-template-columns:1fr;gap:1.1rem;border-bottom:0}
+.log details :is(.v2,.v3) .grp{display:block;padding:0;border:0}
+.log details :is(.v2,.v3) h4{margin:0 0 .4rem;font:500 .72rem var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--text)}
+.log details :is(.v2,.v3) ul{margin:0;padding:0;list-style:none;display:grid;gap:.3rem}
+.log details :is(.v2,.v3) li{position:relative;padding-left:1rem;color:var(--muted);line-height:1.5}
+.log details :is(.v2,.v3) li::before{content:"";position:absolute;left:0;top:.6em;width:5px;height:5px;border-radius:50%;background:var(--accent)}
+.log details :is(.v2,.v3) li ul{margin-top:.3rem;padding-left:.2rem}
+@media (max-width:640px){.log details :is(.v2,.v3){padding-left:0}.log summary{grid-template-columns:4rem 1fr auto}}
 details{border-bottom:1px solid var(--line);padding:1.1rem 0}
 summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:1rem}
 summary::-webkit-details-marker{display:none}
@@ -205,9 +205,9 @@ footer p{max-width:75ch;margin:0 0 .8rem}
     <div class="dl-txt">
     <h2>Descargar</h2>
     <dl>
-      <dt>Versión</dt><dd id="v">2.0</dd>
+      <dt>Versión</dt><dd id="v">3.0</dd>
       <dt>Archivo</dt><dd>XlesterX.sprx</dd>
-      <dt>Tamaño</dt><dd>595KB</dd>
+      <dt>Tamaño</dt><dd>791KB</dd>
       <dt>Actualizado</dt><dd id="date">—</dd>
 	  <dt>Discord</dt><dd>discord.gg/vnrkCphem7 </dd>
     </dl>
@@ -220,7 +220,32 @@ footer p{max-width:75ch;margin:0 0 .8rem}
 <section><div class="wrap">
   <div class="head rv"><h2>Novedades</h2><p class="sub">Historial de versiones.</p></div>
   <div class="log rv">
-   <div><b>v3.0</b><span class="work">Working<i>.</i><i>.</i><i>.</i></span></div>
+   <div><b>v4.0</b><span class="work">Working<i>.</i><i>.</i><i>.</i></span></div>
+   <details><summary><b>V3.0</b><span>Ver todo lo nuevo</span></summary>
+      <div class="v3">
+	  <div class="grp"><h4>Network</h4><ul>
+          <li>Draw Marker player</li>
+          <li>Clear Wanted level (para el jugador seleccionado)</li>
+		   <li>Detach entity (para el jugador seleccionado)</li>
+        </ul>
+		</div>
+        <div class="grp"><h4>XML Loader</h4><ul>
+          <li>Vehicle Menyoo</li>
+          <li>Vehicles XML</li>
+		   <li>XML Map/IPL</li>
+        </ul></div>
+        <div class="grp"><h4>Weapons</h4><ul>
+		  <li>Fixed Infinite Ammo</li>
+          <li>Fix Explosion ammo</li>
+		  <li>Impacto Personalizado</li>
+		  <li>Tipo de impacto</li>
+        </ul></div>
+        <div class="grp"><h4>Settings</h4><ul>
+          <li>Language (English, Español, Frances y Alemán)</li>
+          <li>Imagenes personalizadas para el Fondo del menu y para el banner (Se puede cambiar en tiempo real)</li>
+        </ul></div>
+      </div>
+    </details>
     <details><summary><b>V2.0</b><span>Ver todo lo nuevo</span></summary>
       <div class="v2">
         <div class="grp"><h4>Self Options</h4><ul>
@@ -278,9 +303,9 @@ footer p{max-width:75ch;margin:0 0 .8rem}
 
 <script>
 var CONFIG={
-  version:"2.0",
-  date:"29/10/2026",
-  download:"https://www.mediafire.com/file/8axwrokm5czrou2/XlesterX+sprx+V2.rar/file",
+  version:"3.0",
+  date:"11/11/2026",
+  download:"https://www.mediafire.com/file/8yl9us3hugfccec/XlesterX_sprx_V3.rar/file",
   features:[
     ["Jugador","Opciones de personaje, salud, habilidades y apariencia."],
     ["Vehículos","Genera, personaliza y ajusta coches, motos y más."],
